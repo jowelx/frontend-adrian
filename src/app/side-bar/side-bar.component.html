@@ -1,0 +1,22 @@
+<div class="options-container">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item [ngClass]="{ active: parametroSideMenu === 'Home' }">
+        <mat-icon>home</mat-icon>
+        <a href="/home">Inicio</a>
+      </mat-list-item>
+      <mat-list-item *ngIf="data.type === 'student'" [ngClass]="{ active: parametroSideMenu === 'Upload' }">
+        <mat-icon>assignment</mat-icon>
+        <a href="/upload">Subir Tarea</a>
+      </mat-list-item>
+      <mat-list-item *ngIf="data.type === 'teacher'" [ngClass]="{ active: parametroSideMenu === 'AddUser' }">
+        <mat-icon>person_add</mat-icon>
+        <a href="/addUser">Añadir estudiante</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <a href="/login">Salir</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</div>

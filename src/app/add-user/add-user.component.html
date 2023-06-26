@@ -1,0 +1,28 @@
+<app-nav-bar [parametroMenu]="'Añadir estudiante'"></app-nav-bar>
+<app-side-bar [parametroSideMenu]="'AddUser'"></app-side-bar>
+<div class="container">
+
+    <div class="form">
+        <form (submit)="addUser($event,name.value,active.value,password.value,course.value,email.value)">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" #name>
+    
+    <label for="activo">¿Está activo?</label>
+    <input type="checkbox" id="activo" #active>
+    
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" #password>
+    
+    <label for="curso">Curso:</label>
+    <input type="text" id="curso" #course>
+    
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" #email>
+    <button type="submit">Añadir estudiante</button>
+        </form>
+
+
+    </div>
+
+</div>
+

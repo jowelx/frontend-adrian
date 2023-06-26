@@ -1,0 +1,17 @@
+.navbar {
+    height:2vh;
+    background-color: #258bff;
+    padding: 10px;
+    text-align: left;
+    position:fixed;
+    z-index: 9999;
+    left:0;
+    right: 0;
+    top:0;
+    padding-left: 6vh;
+    display: flex;
+    align-items: center;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size:2.5vh;
+}

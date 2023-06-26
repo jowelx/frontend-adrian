@@ -1,0 +1,21 @@
+<form (submit)="addTask($event,name.value, description.value,date.value)">
+  <div class="card">
+    <div class="collumn">
+      <label for="fileInput">Subir Archivo:</label>
+      <input type="file" id="fileInput" />
+    </div>
+    <div class="collumn">
+      <label for="dueDateInput">Fecha de Entrega:</label>
+      <input type="text" id="dueDateInput" #date/>
+    </div>
+    <div class="collumn">
+      <label for="dueDateInput">Nombre de la tarea:</label>
+      <input type="text" id="nameTask" #name/>
+    </div>
+    <div class="collumn">
+      <label for="dueDateInput">Descripcion de la tarea:</label>
+      <input type="text" id="descriptionTask" #description/>
+    </div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
