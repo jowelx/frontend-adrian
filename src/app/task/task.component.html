@@ -1,0 +1,21 @@
+<app-nav-bar [parametroMenu]="'Tarea'"></app-nav-bar>
+<app-side-bar [parametroSideMenu]="'Home'"></app-side-bar>
+<form (submit)="editTask($event, active?.value,date.value)">
+
+
+    <div class="card">
+        <div class="header">
+        <a href="/home"><mat-icon>arrow_back</mat-icon></a>
+        <label>Editar tarea</label>
+        </div>
+        <div class="collumn">
+            <label for="dueDateInput">Fecha de Entrega:</label>
+            <input type="text" id="dueDateInput"  #date />
+        </div>
+        <div class="collumn" [ngClass]="{ noActive: data.type !== 'teacher' }">
+            <label for="dueDateInput">Estado de la tarea</label>
+                <input type="checkbox" id="activo" #active>
+        </div>
+        <button type="submit">Enviar</button>
+    </div>
+</form>

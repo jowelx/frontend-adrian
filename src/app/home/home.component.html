@@ -1,49 +1,74 @@
-<app-nav-bar  [parametroMenu]="'Home'"></app-nav-bar>
+<app-nav-bar [parametroMenu]="'Home'"></app-nav-bar>
 <app-side-bar [parametroSideMenu]="'Home'"></app-side-bar>
 <div class="container">
-    <p *ngIf="data">Bienvenido{{data.name}}</p>
-    <table *ngIf="data.type ==='student'">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Estudiante</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Tarea</th>
-                <th>Fecha de entrega</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let task of tasks; let i = index">
-                <td>{{ i+1}}</td>
-                <td>{{ task.student }}</td>
-                <td>{{ task.title }}</td>
-                <td>{{ task.description }}</td>
-                <td>{{ task.completed }}</td>
-                <td>{{ task.date }}</td>
-            </tr>
-        </tbody>
-    </table>
-        <table *ngIf="data.type ==='teacher'">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Estudiante</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Tarea</th>
-                    <th>Fecha de entrega</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let task of allTask; let i = index">
-                    <td>{{ i+1}}</td>
-                    <td>{{ task.student }}</td>
-                    <td>{{ task.title }}</td>
-                    <td>{{ task.description }}</td>
-                    <td>{{ task.completed }}</td>
-                    <td>{{ task.date }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="welcomeText">
+<p *ngIf="data">Bienvenido</p>
+<p *ngIf="data">{{ data.name }}</p>
+    </div>
+
+  <table *ngIf="data.type === 'student'">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Estudiante</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Tarea</th>
+        <th>Fecha de entrega</th>
+        <th>Archivo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let task of tasks; let i = index">
+        <td [routerLink]="['/task', task._id]">{{ i + 1 }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.student }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.title }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.description }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.completed ===false?'Sin revisar': 'Revisado'}}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.date }}</td>
+        <td>
+          <a href="{{ task.file }}" target="_blank">
+            <mat-icon>attach_file</mat-icon> Descargar
+          </a>
+        </td>
+                <td class="deleteIcon">
+                  <mat-icon (click)="deleteItem(task._id)">delete</mat-icon>
+                </td>
+      </tr>
+    </tbody>
+  </table>
+  <table *ngIf="data.type === 'teacher'">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Estudiante</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Tarea</th>
+        <th>Fecha de entrega</th>
+        <th>Archivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let task of allTask; let i = index"
+      >
+        <td [routerLink]="['/task', task._id]">{{ i + 1 }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.student }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.title }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.description }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.completed === false ? 'Sin revisar' : 'Revisado' }}</td>
+        <td [routerLink]="['/task', task._id]">{{ task.date }}</td>
+        <td>
+          <a href="{{ task.file }}" target="_blank">
+            <mat-icon>attach_file</mat-icon> Descargar
+          </a>
+        </td>
+        <td>
+          <mat-icon (click)="deleteItem(task._id)">delete</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

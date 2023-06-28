@@ -21,5 +21,59 @@ thead {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: rgb(219, 219, 219);
+}
+tbody tr:nth-child(even):hover {
+    background-color: rgb(233, 233, 233);
+}
+tr{
+    cursor:pointer;
+    transition:all 0.3s ease;
+
+}
+tr:hover {
+    background-color: rgb(245, 245, 245);
+}
+.welcomeText{
+    background-color: rgba(0, 204, 255, 0.171);
+    width: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:2vh;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgb(122, 122, 122);
+}
+.welcomeText p{
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.5vh;
+   display: inline;
+}
+table{
+    background-color: rgb(236, 236, 236);
+    padding: 2vh;
+    border-radius: 4px;
+    border:solid 1px rgb(219, 219, 219)
+}
+a{
+    border-radius: 4px;
+    margin:0;
+box-shadow: 0 2px 5px 0 rgb(122, 122, 122);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(238, 238, 238);
+    background-color: #258bff;
+    padding: 5px;
+}
+.deleteIcon{
+    color:rgb(255, 87, 87);
+
+}
+thead{
+    background-color: #258bffc4;
+    color:rgb(68, 68, 68);
+    
 }

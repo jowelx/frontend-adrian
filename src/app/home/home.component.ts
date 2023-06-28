@@ -20,7 +20,33 @@ export class HomeComponent {
     this.data = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.data);
   }
-
+  deleteItem(id: any) {
+    const url = `http://localhost:3000/tasks/${id}`;
+    this.http.delete(url).subscribe(
+      (response: any) => {
+        console.log(response);
+        // Aquí puedes manejar la respuesta del servidor
+        this.http.get('http://localhost:3000/tasks').subscribe(
+          (response: any) => {
+            console.log(response);
+            // Aquí puedes manejar la respuesta del servidor
+            this.allTask = response;
+            this.tasks = response.filter(
+              (task: any) => task.id_student === this.data._id
+            );
+          },
+          (error) => {
+            console.error(error);
+            // Aquí puedes manejar el error en caso de que ocurra
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+        // Aquí puedes manejar el error en caso de que ocurra
+      }
+    );
+  }
   getTask() {
     const url = 'http://localhost:3000/tasks';
     this.http.get(url).subscribe(

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="collumn">
       <label for="fileInput">Subir Archivo:</label>
-      <input type="file" id="fileInput" />
+      <input type="file" id="fileInput" (change)="onFileSelected($event)"/>
     </div>
     <div class="collumn">
       <label for="dueDateInput">Fecha de Entrega:</label>
@@ -17,5 +17,6 @@
       <input type="text" id="descriptionTask" #description/>
     </div>
     <button type="submit">Enviar</button>
+          <div class="loader" *ngIf="isLoading">Cargando...</div>
   </div>
 </form>

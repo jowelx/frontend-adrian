@@ -16,6 +16,7 @@ import { UploadComponent } from './upload/upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
     UploadComponent,
     AddUserComponent,
     ListUsersComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
